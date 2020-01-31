@@ -1,0 +1,10 @@
+﻿@model PetGrooming.Models.Pet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<ul class="list-group">
+    <li class="list-group-item active">Delete Pet <span class="action-items top-action"><a href="/Pet/Show/@Model.PetID">No</a></span> <span class="action-items top-action"><a href="/Pet/DeletePet/@Model.PetID">Yes</a></span></li>
+    <li class="list-group-item">Are you sure you want to delete pet - @Model.PetName?</li>
+</ul>

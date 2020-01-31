@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+<form method="POST" action="/Pet/Add">
+    <!-- TODO: format this nicely -->
+    <ul class="list-group">
+        <li class="list-group-item active">Add Pet</li>
+        <li class="list-group-item">
+            Pet Name:
+            <div>
+                <input id="PetName" type="text" name="PetName" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Pet Color:
+            <div>
+                <input id="PetName" type="text" name="PetColor" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Species:
+            <div>
+                <select id="SpeciesID" type="text" name="SpeciesID">
+                    @{
+                        //A rendering loop for presenting a list of species
+                        //The pet should be one of these species
+                        foreach (var species in Model)
+                        {
+                            <option value="@species.SpeciesID">@species.Name</option>
+
+                        }
+                    }
+                </select>
+            </div>
+        </li>
+        <li class="list-group-item">
+            Pet Weight (KG):
+            <div>
+                <input id="PetWeight" type="text" name="PetWeight" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Notes:
+            <div>
+                <textarea id="PetNotes" name="PetNotes"></textarea>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <input class="submit-btn" type="submit" value="Add Pet">
+        </li>
+    </ul>
+</form>

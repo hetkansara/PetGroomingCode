@@ -1,0 +1,10 @@
+﻿@model PetGrooming.Models.Species
+
+
+@{
+    ViewBag.Title = "Show";
+}
+<ul class="list-group">
+    <li class="list-group-item active">Species Details <span class="action-items top-action"><a href="/Species/Delete/@Model.SpeciesID">Delete</a></span> <span class="action-items top-action"><a href="/Species/Update/@Model.SpeciesID">Update</a></span> </li>
+    <li class="list-group-item">Name: @Model.Name</li>
+</ul>

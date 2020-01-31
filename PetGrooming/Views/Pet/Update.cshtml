@@ -1,0 +1,61 @@
+﻿@model PetGrooming.Models.ViewModels.PetUpdate
+
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<form method="POST" action="/Pet/Update/@Model.Pet.PetID">
+    <!-- TODO: format this nicely -->
+    <ul class="list-group">
+        <li class="list-group-item active">Update Pet</li>
+        <li class="list-group-item">
+            Pet Name:
+            <div>
+                <input type="text" value="@Model.Pet.PetName" id="PetName" name="PetName" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Pet Color:
+            <div>
+                <input type="text" value="@Model.Pet.Color" id="PetColor" name="PetColor" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Species:
+            <div>
+                <select id="SpeciesID" type="text" name="SpeciesID">
+                    @{
+                        //A rendering loop for presenting a list of species
+                        //The pet should be one of these species
+                        foreach (var species in @Model.Species)
+                        {
+                            var selected = "";
+                            if(species.SpeciesID == Model.Pet.Species.SpeciesID)
+                            {
+                                selected = "selected";
+                            }
+                            <option value="@species.SpeciesID" @selected>@species.Name</option>
+
+                        }
+                    }
+                </select>
+            </div>
+        </li>
+        <li class="list-group-item">
+            Pet Weight (KG):
+            <div>
+                <input type="text" value="@Model.Pet.Weight" id="PetWeight" name="PetWeight" />
+            </div>
+        </li>
+        <li class="list-group-item">
+            Notes:
+            <div>
+                <textarea id="PetNotes" name="PetNotes">@Model.Pet.Notes</textarea>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <input type="submit" value="Update Pet" />
+        </li>
+    </ul>
+</form>
